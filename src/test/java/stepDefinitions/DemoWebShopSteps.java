@@ -32,6 +32,15 @@ public class DemoWebShopSteps extends BaseTest{
 		public void enter_the_details(String FName, String LName, String Gender, String Email, String Password) {
 			registerUser.enter_details_for_registeration(FName, LName, Gender, Email, Password);
 		}
+		
+		
+		
+	
+		
+		@Then("add Product to cart")
+		public void add_Product_to_cart() {
+			registerUser.addToCart();
+		}
 
 		@Then("Click on save")
 		public void click_on_save() {

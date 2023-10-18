@@ -20,7 +20,11 @@ Feature: This feature is for DemoWebShop website
     When Open the Url "https://demowebshop.tricentis.com/"
     And Click on login button
     And Enter the details "<Email>" and "<Password>" and Click on login
+
+    Then add Product to cart
     
     Examples:
      | Email | Password |
      | rb.Test@abc.com | Test@123 |
+     
+    

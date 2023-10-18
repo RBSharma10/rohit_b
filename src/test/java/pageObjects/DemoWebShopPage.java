@@ -20,9 +20,24 @@ public class DemoWebShopPage {
 	@FindBy(xpath = "//input[@value='Log in']")
 	WebElement loginButton;
 	
+	@FindBy(xpath = "(//a[contains(text(),'Electronics')])[3]")
+	WebElement electronicsLink;
+	
+	@FindBy(xpath = "//img[@title='Show products in category Cell phones']")
+	WebElement cellPhonesImg;
+	
+	@FindBy(xpath = "//img[@title='Show details for Smartphone']")
+	WebElement cellPhoneProduct;
+	
+	@FindBy(id = "add-to-cart-button-43")
+	WebElement addToCart;
+	
+	
+	
 	@FindBy(xpath = "//a[@class='ico-register']")
 	WebElement RegisterLink;
 	
+
 	@FindBy(id = "gender-male")
 	WebElement MaleGender;
 	
@@ -47,9 +62,15 @@ public class DemoWebShopPage {
 	@FindBy(id = "register-button")
 	WebElement Register_Button;
 	
+	// To add the item to cart
+	public void addToCart() {
+		electronicsLink.click();
+		cellPhonesImg.click();
+		cellPhoneProduct.click();
+		addToCart.click();
+		
+	}
 	
-	
-
 	// To click on login link
 	public void clickLoginLink() {
 		loginLink.click();
