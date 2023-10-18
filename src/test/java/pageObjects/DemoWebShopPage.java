@@ -14,6 +14,12 @@ public class DemoWebShopPage {
 		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy(xpath = "//a[@class='ico-login']")
+	WebElement loginLink;
+	
+	@FindBy(xpath = "//input[@value='Log in']")
+	WebElement loginButton;
+	
 	@FindBy(xpath = "//a[@class='ico-register']")
 	WebElement RegisterLink;
 	
@@ -42,15 +48,32 @@ public class DemoWebShopPage {
 	WebElement Register_Button;
 	
 	
+	
+
+	// To click on login link
+	public void clickLoginLink() {
+		loginLink.click();
+	}
+	
+	// This is to login in to demoWebShop
+	public void loginDemoWeb(String emailID, String pswd) {
+		
+		Email.sendKeys(emailID);
+		Password.sendKeys(pswd);
+		loginButton.click();
+	}
+	
+	// To navigate to the URL
 	public void openURL(String URL) {
 		driver.get(URL);
 	}
 	
-	
+	// To click on register link
 	public void click_register_link_page() {
 		RegisterLink.click();
 	}
 	
+	// To enter the details for registeration on DemoWebShop
 	public void enter_details_for_registeration(String FName, String LName, String gender, String EmailID, String pswd) {
 		if(gender.equalsIgnoreCase("male")) {
 			MaleGender.click();
@@ -65,6 +88,7 @@ public class DemoWebShopPage {
 		ConfirmPassword.sendKeys(pswd);
 	}
 	
+	// To click on register button
 	public void click_on_register_button() {
 		Register_Button.click();
 	}

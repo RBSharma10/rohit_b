@@ -38,4 +38,14 @@ public class DemoWebShopSteps extends BaseTest{
 			registerUser.click_on_register_button();
 		}
 		
+
+		@And("Enter the details {string} and {string} and Click on login")
+		public void enter_the_details(String Email, String Password) {
+			registerUser.loginDemoWeb( Email, Password);
+		}
+		
+		@And("Click on login button")
+		public void click_on_login_button() {
+			registerUser.clickLoginLink();
+		}
 	}
