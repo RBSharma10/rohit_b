@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features = "C:\\Users\\rohit.bhargava\\eclipse-workspace\\CucumberJava\\src\\test\\resources\\Features\\DemoWebShop.feature",
 		glue={"stepDefinitions"},
-		tags = "@Register",
+		tags = "@Login",
 		dryRun=false,		
 		plugin= {"pretty"},
 		monochrome = true
