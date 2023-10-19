@@ -14,6 +14,33 @@ public class DemoWebShopPage {
 		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy(xpath = "(//a[contains(text(),'Gift Cards')])[3]")
+	WebElement giftCardsLink;
+	
+	@FindBy(xpath = "//img[@title ='Show details for $5 Virtual Gift Card']")
+	WebElement giftCardImg;
+	
+	@FindBy(xpath = "//input[@id=\"giftcard_1_RecipientName\"]")
+	WebElement recipientNameTextBox;
+
+	@FindBy(id = "giftcard_1_RecipientEmail")
+	WebElement recipientEmailTextBox;
+	
+	@FindBy(id = "giftcard_1_Message")
+	WebElement giftcard_MessageTextBox;
+	
+	@FindBy(xpath = "//input[@value='Email a friend']")
+	WebElement EmailAFriendButton;
+	
+	@FindBy(id = "FriendEmail")
+	WebElement FriendEmailTextBox;
+	
+	@FindBy(id = "YourEmailAddress")
+	WebElement YourEmailTextBox;
+	
+	@FindBy(name = "send-email")
+	WebElement sendEmailButton;
+	
 	@FindBy(xpath = "//a[@class='ico-login']")
 	WebElement loginLink;
 	
@@ -61,6 +88,34 @@ public class DemoWebShopPage {
 	
 	@FindBy(id = "register-button")
 	WebElement Register_Button;
+	
+	
+	public void clickGiftCards() {
+		giftCardsLink.click();
+	}
+	
+	public void clickGiftCardImage() {
+		giftCardImg.click();
+	}
+	
+	public void TypeDetails(String FriendName, String FriendEmailId, String Message) {
+		recipientNameTextBox.sendKeys(FriendName);
+		recipientEmailTextBox.sendKeys(FriendEmailId);
+		giftcard_MessageTextBox.sendKeys(Message);
+	}
+	
+	public void clickEmailFriend() {
+		EmailAFriendButton.click();
+	}
+	
+	public void DummyEmailId(String DummyEmail) {
+		FriendEmailTextBox.sendKeys(DummyEmail);
+	}
+	
+	public void clickSendEmail() {
+		sendEmailButton.click();
+	}
+	
 	
 	// To add the item to cart
 	public void addToCart() {
