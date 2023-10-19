@@ -2,6 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -13,6 +14,52 @@ public class DemoWebShopPage {
 		this.driver = Stepsdriver;
 		PageFactory.initElements(driver, this);
 	}
+	
+	@FindBy(xpath = "(//a[contains(text(),'Computers')])[1]")
+	WebElement ComputerTab;
+
+	@FindBy(xpath = "(//a[contains(text(),'Desktops')])[1]")
+	WebElement Desktops;
+
+	@FindBy(xpath = "//select[@id='products-orderby']/option[contains(text(),'Name: A to Z')]")
+	WebElement SortDropdown;
+
+	@FindBy(xpath = "//img[@title='Show details for Build your own cheap computer']")
+	WebElement firstLaptop;
+
+	@FindBy(xpath = "//input[@value='Add to compare list']")
+	WebElement AddtoCompareButton;
+
+	@FindBy(xpath = "//a[text()='Log out']")
+	WebElement LogoutButton;
+	
+	
+	@FindBy(xpath = "(//a[contains(text(),'Gift Cards')])[3]")
+	WebElement giftCardsLink;
+	
+	@FindBy(xpath = "//img[@title ='Show details for $5 Virtual Gift Card']")
+	WebElement giftCardImg;
+	
+	@FindBy(xpath = "//input[@id=\"giftcard_1_RecipientName\"]")
+	WebElement recipientNameTextBox;
+
+	@FindBy(id = "giftcard_1_RecipientEmail")
+	WebElement recipientEmailTextBox;
+	
+	@FindBy(id = "giftcard_1_Message")
+	WebElement giftcard_MessageTextBox;
+	
+	@FindBy(xpath = "//input[@value='Email a friend']")
+	WebElement EmailAFriendButton;
+	
+	@FindBy(id = "FriendEmail")
+	WebElement FriendEmailTextBox;
+	
+	@FindBy(id = "YourEmailAddress")
+	WebElement YourEmailTextBox;
+	
+	@FindBy(name = "send-email")
+	WebElement sendEmailButton;
 	
 	@FindBy(xpath = "//a[@class='ico-login']")
 	WebElement loginLink;
@@ -61,6 +108,52 @@ public class DemoWebShopPage {
 	
 	@FindBy(id = "register-button")
 	WebElement Register_Button;
+	
+	public void Add_to_Compare_laptop() throws InterruptedException {
+
+   	 Actions action = new Actions(driver);
+
+   	 action.moveToElement(ComputerTab).build().perform();
+
+   	 Desktops.click();
+
+   	 SortDropdown.click();
+   	 Thread.sleep(2000);
+   	 firstLaptop.click();
+
+   	 AddtoCompareButton.click();
+
+   	 LogoutButton.click();
+
+    }
+	
+	
+	public void clickGiftCards() {
+		giftCardsLink.click();
+	}
+	
+	public void clickGiftCardImage() {
+		giftCardImg.click();
+	}
+	
+	public void TypeDetails(String FriendName, String FriendEmailId, String Message) {
+		recipientNameTextBox.sendKeys(FriendName);
+		recipientEmailTextBox.sendKeys(FriendEmailId);
+		giftcard_MessageTextBox.sendKeys(Message);
+	}
+	
+	public void clickEmailFriend() {
+		EmailAFriendButton.click();
+	}
+	
+	public void DummyEmailId(String DummyEmail) {
+		FriendEmailTextBox.sendKeys(DummyEmail);
+	}
+	
+	public void clickSendEmail() {
+		sendEmailButton.click();
+	}
+	
 	
 	// To add the item to cart
 	public void addToCart() {
