@@ -48,6 +48,20 @@ public class DemoWebShopSteps extends BaseTest{
 		}
 		
 
+//		
+//		
+//		 
+//		
+//		
+//		
+		
+		@And("click on gift cards")
+		public void click_on_gift_cards() {
+			demoweb.clickGiftCards();
+		}
+		
+		
+
 		@And("Enter the details {string} and {string} and Click on login")
 		public void enter_the_details(String Email, String Password) {
 			demoweb.loginDemoWeb( Email, Password);
@@ -64,10 +78,6 @@ public class DemoWebShopSteps extends BaseTest{
 //		
 //		
 		
-		@And("click on gift cards")
-		public void click_on_gift_cards() {
-			demoweb.clickGiftCards();
-		}
 		
 		@And("click on any gift card")
 		public void click_on_any_gift_card() {
